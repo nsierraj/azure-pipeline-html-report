@@ -2,14 +2,15 @@
   "compilerOptions": {
     "module": "amd",
     "moduleResolution": "node",
-    "target": "es6",
+    "target": "es2020",
+    "lib": ["es2020", "dom"],
     "outDir": "dist/",
     "jsx": "react",
     "types": [
         "react",
         "node"
     ],
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
   "files": [
       "src/tabContent.tsx"

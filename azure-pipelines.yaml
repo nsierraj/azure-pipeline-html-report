@@ -1,16 +1,20 @@
+trigger:
+  branches:
+    include:
+      - main
+      - '*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
 steps:
 - task: NodeTool@0
+  displayName: 'Use Node 20.x'
   inputs:
-    versionSpec: '12.x'
+    versionSpec: '20.x'
 
 - task: Npm@1
-  displayName: 'NPM: Install Task Dependencies'
-  inputs:
-    workingDir: PublishHtmlReport
-    verbose: false
-
-- task: Npm@1
-  displayName: 'npm install extension'
+  displayName: 'npm install'
   inputs:
     workingDir: .
     verbose: false
@@ -28,7 +32,7 @@ steps:
   inputs:
     rootFolder: .
     patternManifest: 'azure-devops-extension.json'
-    publisherId: JakubRumpca
+    publisherId: nsierraj
     extensionId: azure-pipelines-html-report
     extensionName: 'Html Viewer'
     extensionVisibility: public
@@ -40,7 +44,7 @@ steps:
   inputs:
     rootFolder: .
     patternManifest: 'azure-devops-extension.json'
-    publisherId: JakubRumpca
+    publisherId: nsierraj
     extensionId: azure-pipelines-html-report
     extensionTag: dev
     extensionName: 'Html Viewer Dev'
@@ -53,25 +57,16 @@ steps:
 - task: PublishAzureDevOpsExtension@2
   displayName: 'TFX: Publish Extension Dev'
   inputs:
-    connectedServiceName: JakubMarketPlace
+    connectedServiceName: nsierrajMarketPlace
     rootFolder: .
     patternManifest: 'azure-devops-extension.json'
-    publisherId: JakubRumpca
+    publisherId: nsierraj
     extensionId: azure-pipelines-html-report
     extensionTag: dev
     extensionName: 'Html Viewer Dev'
     extensionVersion: '1.0.$(Build.BuildId)'
     extensionVisibility: private
     extensionPricing: free
-  condition: and(succeeded(), ne(variables['Build.SourceBranchName'], 'main'))
-
-- task: ShareAzureDevOpsExtension@2
-  displayName: 'TFX: Share Extension'
-  inputs:
-    connectedServiceName: JakubMarketPlace
-    method: vsix
-    vsixFile: '**.vsix'
-    accounts: 'maciejmaciejewski-dev'
   condition: and(succeeded(), ne(variables['Build.SourceBranchName'], 'main'))
 
 - task: CopyFiles@2

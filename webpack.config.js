@@ -4,7 +4,12 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-       tabContent:  "./src/tabContent.tsx",
+       tabContent: "./src/tabContent.tsx",
+    },
+
+    output: {
+        filename: "[name].js",
+        path: path.resolve(__dirname, "dist")
     },
 
     resolve: {
@@ -24,7 +29,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ["style-loader", "css-loader", "azure-devops-ui/buildScripts/css-variables-loader", "sass-loader"]
+                use: ["style-loader", "css-loader", "azure-devops-ui/buildScripts/css-variables-loader", { loader: "sass-loader", options: { api: "modern", sassOptions: { loadPaths: [__dirname], silenceDeprecations: ["import"] } } }]
             },
             {
                 test: /\.css$/,
@@ -32,20 +37,20 @@ module.exports = {
             },
             {
                 test: /\.woff$/,
-                use: [{
-                    loader: 'base64-inline-loader'
-                }]
+                type: 'asset/inline'
             },
             {
                 test: /\.html$/,
-                loader: "file-loader"
+                type: 'asset/resource'
             }
         ]
     },
     plugins: [
-        new CopyWebpackPlugin([
-            { from: "*.html", context: "src/" },
-        ]),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: "*.html", context: path.resolve(__dirname, "src") }
+            ]
+        }),
         new webpack.SourceMapDevToolPlugin({})
     ]
 };

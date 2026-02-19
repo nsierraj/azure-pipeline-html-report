@@ -1,10 +1,10 @@
 {
     "manifestVersion": 1,
     "id": "azure-pipelines-html-report",
-    "publisher": "JakubRumpca",
+    "publisher": "nsierraj",
     "version": "1.0.8",
-    "author": "Jakub Rumpca",
-    "name": "Html Viewer Dev",
+    "author": "nsierraj",
+    "name": "Html Viewer",
     "description": "Embed HTML report in Azure Pipelines",
     "public": false,
     "categories": ["Azure Pipelines"],
@@ -19,7 +19,7 @@
     ],
     "repository": {
         "type": "git",
-        "uri": "https://github.com/JakubRumpca/azure-pipeline-html-report"
+        "uri": "https://github.com/nsierraj/azure-pipeline-html-report"
     },
     "content": {
         "details": {
