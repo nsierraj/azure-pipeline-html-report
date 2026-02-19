@@ -27,6 +27,11 @@ steps:
     verbose: false
     customCommand: 'run build:cidev'
 
+- task: TfxInstaller@4
+  displayName: 'Install tfx-cli'
+  inputs:
+    version: '0.x'
+
 - task: PackageAzureDevOpsExtension@5
   displayName: 'TFX: Package Extension Prod'
   inputs:
