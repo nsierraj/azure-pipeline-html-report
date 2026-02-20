@@ -1,5 +1,5 @@
 {
-  "id": "bf52d8fd-c399-4acd-98c7-a03ceee2a974",
+  "id": "4454325f-f30b-49da-b736-777ea59c7742",
   "name": "PublishHtmlReport",
   "friendlyName": "Publish Html Report",
   "description": "Publish Html Report",
@@ -11,9 +11,9 @@
   ],
   "demands": [],
   "version": {
-    "Major": "1",
-    "Minor": "0",
-    "Patch": "8"
+    "Major": "0",
+    "Minor": "1",
+    "Patch": "0"
   },
   "minimumAgentVersion": "2.206.1",
   "instanceNameFormat": "Publish Html Report",
