@@ -35,6 +35,7 @@ steps:
 - task: QueryAzureDevOpsExtensionVersion@5
   displayName: 'Query Current Marketplace Version'
   inputs:
+    connectTo: 'VsTeam'
     connectedServiceName: nsierrajMarketPlace
     publisherId: nsierraj
     extensionId: azure-pipelines-html-report
