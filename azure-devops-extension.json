@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "azure-pipelines-html-report",
     "publisher": "nsierraj",
-    "version": "1.0.8",
+    "version": "0.1.0",
     "author": "nsierraj",
     "name": "Html Viewer",
     "description": "Embed HTML report in Azure Pipelines",
@@ -45,7 +45,7 @@
                 "name": "HTML Viewer",
                 "uri": "dist/tabContent.html",
                 "registeredObjectId": "registerBuild",
-                "supportsTasks": ["bf52d8fd-c399-4acd-98c7-a03ceee2a974"],
+                "supportsTasks": ["4454325f-f30b-49da-b736-777ea59c7742"],
                 "dynamic": true
             },
             "includes": ["ms.vss-releaseManagement-web.release-service-data-external"]

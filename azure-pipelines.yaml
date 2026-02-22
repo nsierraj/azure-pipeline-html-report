@@ -32,6 +32,15 @@ steps:
   inputs:
     version: '0.x'
 
+- task: QueryAzureDevOpsExtensionVersion@5
+  displayName: 'Query Current Marketplace Version'
+  inputs:
+    connectedServiceName: nsierrajMarketPlace
+    publisherId: nsierraj
+    extensionId: azure-pipelines-html-report
+    versionAction: 'None'
+  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
+
 - task: PackageAzureDevOpsExtension@5
   displayName: 'TFX: Package Extension Prod'
   inputs:
@@ -42,6 +51,8 @@ steps:
     extensionName: 'Html Viewer'
     extensionVisibility: public
     extensionPricing: free
+    updateTasksVersion: true
+    updateTasksVersionType: patch
   condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
 
 - task: PackageAzureDevOpsExtension@5

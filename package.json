@@ -1,6 +1,6 @@
 {
   "name": "azure-pipelines-html-report",
-  "version": "1.0.8",
+  "version": "0.1.0",
   "private": true,
   "author": "nsierraj",
   "engines": {
@@ -38,6 +38,8 @@
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
+    "version:sync": "node scripts/sync-version.js",
+    "version": "node scripts/sync-version.js && git add azure-devops-extension.json PublishHtmlReport/task.json PublishHtmlReport/package.json",
     "clean": "rimraf ./dist",
     "build:cidev": "npm run clean && webpack --mode development",
     "build": "npm run clean && webpack --mode development",
