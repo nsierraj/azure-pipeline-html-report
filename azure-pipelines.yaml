@@ -74,7 +74,7 @@ steps:
 - task: PublishAzureDevOpsExtension@5
   displayName: 'TFX: Publish Extension Dev'
   inputs:
-    connectedServiceName: nsierrajMarketPlace
+    connectedServiceNameAzureRM: nsierrajMarketPlace
     rootFolder: .
     patternManifest: 'azure-devops-extension.json'
     publisherId: nsierraj
