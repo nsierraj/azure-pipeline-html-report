@@ -71,10 +71,10 @@ steps:
     extensionPricing: free
   condition: and(succeeded(), ne(variables['Build.SourceBranchName'], 'main'))
 
-- task: PublishAzureDevOpsExtension@5
+- task: PublishAzureDevOpsExtension@4
   displayName: 'TFX: Publish Extension Dev'
   inputs:
-    connectedServiceNameAzureRM: nsierrajMarketPlace
+    connectedServiceName: nsierrajMarketPlace
     rootFolder: .
     patternManifest: 'azure-devops-extension.json'
     publisherId: nsierraj
