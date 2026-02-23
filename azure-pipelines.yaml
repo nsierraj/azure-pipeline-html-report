@@ -71,7 +71,7 @@ steps:
     extensionPricing: free
   condition: and(succeeded(), ne(variables['Build.SourceBranchName'], 'main'))
 
-- task: PublishAzureDevOpsExtension@4
+- task: PublishAzureDevOpsExtension@5
   displayName: 'TFX: Publish Extension Dev'
   inputs:
     connectedServiceName: nsierrajMarketPlace
